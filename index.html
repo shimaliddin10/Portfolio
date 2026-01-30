@@ -17,6 +17,7 @@
             --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
             --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
             --success-gradient: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            --gold-gradient: linear-gradient(135deg, #f7971e 0%, #ffd200 100%);
             --dark-bg: #0a0a0a;
             --card-bg: rgba(255, 255, 255, 0.05);
             --text-primary: #ffffff;
@@ -452,6 +453,30 @@
             transform: scale(1.05);
         }
 
+        /* Achievement Badge */
+        .achievement-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--gold-gradient);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 10px;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 10px rgba(255, 210, 0, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(255, 210, 0, 0.6);
+            }
+        }
+
         /* Experience Timeline */
         .timeline {
             position: relative;
@@ -599,7 +624,7 @@
             width: 100%;
             height: 4px;
             background: rgba(255, 255, 255, 0.1);
-            z-index: 1000;
+            z-index: 999;
         }
 
         .scroll-progress {
@@ -612,40 +637,46 @@
         /* Responsive Design */
         @media (max-width: 768px) {
             nav {
-                position: fixed;
-                bottom: 20px;
-                left: 20px;
-                right: 20px;
-                top: auto;
+                top: 10px;
+                right: 10px;
+                padding: 10px;
             }
 
             nav ul {
-                justify-content: space-around;
+                gap: 10px;
             }
 
-            .projects-grid {
-                grid-template-columns: 1fr;
+            nav a {
+                padding: 6px 12px;
+                font-size: 0.9rem;
             }
 
-            .skills-grid {
-                grid-template-columns: 1fr;
+            .hero h1 {
+                font-size: 2rem;
             }
 
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
             }
 
             .timeline-item {
                 margin-left: 60px;
             }
 
-            .section {
-                padding: 60px 20px;
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item::before {
+                left: -55px;
             }
         }
 
-        /* Animations for scroll-triggered elements */
+        /* Fade In Animation */
         .fade-in {
             opacity: 0;
             transform: translateY(50px);
@@ -728,11 +759,11 @@
                 </div>
             </div>
             <h1>Mohammad Shimal Iddin</h1>
-            <p class="subtitle">AI/ML Engineer & Full-Stack Developer</p>
+            <p class="subtitle">AI/ML Engineer | MSc Student at Queens University Belfast</p>
             <p class="description">
-                Passionate final year student with excellent problem-solving, research, and collaboration abilities. 
-                Skilled in Python, TensorFlow, and various Machine Learning libraries. 
-                Seeking challenging roles to develop cutting-edge AI solutions.
+                Enthusiastic AI & ML engineering graduate pursuing advanced studies in Artificial Intelligence. 
+                Seeking positions to grow professionally, gain hands-on experience in machine learning and software development,
+                and contribute meaningfully through innovative, data-driven solutions.
             </p>
             <div class="cta-buttons">
                 <a href="#projects" class="btn btn-primary">
@@ -750,10 +781,12 @@
         <h2 class="section-title">About Me</h2>
         <div class="card">
             <p style="font-size: 1.1rem; color: var(--text-secondary); text-align: center; line-height: 1.8;">
-                I'm a passionate and enthusiastic final year AI/ML Engineering student with a strong foundation in artificial intelligence, 
-                machine learning, and full-stack development. My journey in technology has been driven by curiosity and a desire to solve 
-                real-world problems through innovative solutions. With hands-on experience in developing AI-powered applications, 
-                I've worked on projects ranging from healthcare solutions to agricultural technology, always striving to make a positive impact.
+                I'm a passionate AI/ML engineering graduate currently pursuing my MSc in Artificial Intelligence at Queens University Belfast, UK. 
+                With a strong foundation in machine learning, deep learning, and full-stack development, I've worked on diverse projects ranging 
+                from healthcare solutions to agricultural technology. My journey includes hands-on experience as a Junior Data Analyst at Npowa Solutions 
+                and valuable training from C-DAC Bangalore where I earned a Grade B. Beyond academics, I actively contribute to IEEE CIS as Treasurer 
+                and won 2nd prize in a hackathon for the Allora Edubot project. Currently balancing my studies with practical work experience at KFC Belfast, 
+                I'm always eager to collaborate on innovative AI solutions.
             </p>
         </div>
     </section>
@@ -791,12 +824,14 @@
             <div class="card skill-category">
                 <h3><i class="fas fa-cogs"></i> Tools & Technologies</h3>
                 <div class="skill-tags">
+                    <span class="skill-tag">Power BI</span>
+                    <span class="skill-tag">Power Query</span>
+                    <span class="skill-tag">Excel</span>
                     <span class="skill-tag">Android Studio</span>
                     <span class="skill-tag">Visual Studio</span>
                     <span class="skill-tag">OpenCV</span>
                     <span class="skill-tag">React.js</span>
                     <span class="skill-tag">MySQL</span>
-                    <span class="skill-tag">Expo</span>
                     <span class="skill-tag">Git</span>
                 </div>
             </div>
@@ -805,31 +840,12 @@
                 <h3><i class="fas fa-brain"></i> AI/ML Specializations</h3>
                 <div class="skill-tags">
                     <span class="skill-tag">Deep Learning</span>
-                    <span class="skill-tag">LSTM Networks</span>
                     <span class="skill-tag">Computer Vision</span>
                     <span class="skill-tag">NLP</span>
-                    <span class="skill-tag">Transformer Models</span>
-                    <span class="skill-tag">Neural Networks</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="card" style="margin-top: 40px;">
-            <h3 style="text-align: center; margin-bottom: 20px; color: var(--text-primary);">
-                <i class="fas fa-language"></i> Languages
-            </h3>
-            <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
-                <div style="text-align: center;">
-                    <div style="font-weight: 600; color: var(--text-primary);">English</div>
-                    <div style="color: var(--text-secondary); font-size: 0.9rem;">Native Proficiency</div>
-                </div>
-                <div style="text-align: center;">
-                    <div style="font-weight: 600; color: var(--text-primary);">Hindi</div>
-                    <div style="color: var(--text-secondary); font-size: 0.9rem;">Professional Proficiency</div>
-                </div>
-                <div style="text-align: center;">
-                    <div style="font-weight: 600; color: var(--text-primary);">Kannada</div>
-                    <div style="color: var(--text-secondary); font-size: 0.9rem;">Working Proficiency</div>
+                    <span class="skill-tag">Data Preprocessing</span>
+                    <span class="skill-tag">Feature Engineering</span>
+                    <span class="skill-tag">Model Optimization</span>
+                    <span class="skill-tag">Knowledge Engineering</span>
                 </div>
             </div>
         </div>
@@ -847,8 +863,30 @@
                     </div>
                     <div class="project-tech">Visual Studio, HTML, Flask, TensorFlow, OpenCV, React.js, Bootstrap, MySQL</div>
                     <div class="project-description">
-                        Built a deep learning model for non-invasive lung cancer detection and staging using LSTM model and liquid biopsy biomarkers. 
-                        This cutting-edge healthcare solution aims to improve early cancer detection rates.
+                        Built a deep learning model for non-invasive lung cancer detection and staging using CT-Scan images and liquid biopsy biomarkers. 
+                        Utilized CNNs for tumor segmentation, accurately identifying and outlining tumor regions.
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/shimaliddin10" class="project-link">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="card">
+                    <div class="project-header">
+                        <h3 class="project-title">ALLORA EDUBOT</h3>
+                        <span class="project-type">Android App</span>
+                    </div>
+                    <div class="project-tech">Android Studio, Java, Kotlin, GEMINI 1.5 FLASH API</div>
+                    <div class="project-description">
+                        AI Educhat bot dedicated for students to enhance self-regulated learning. Easy-to-use interface with transformer model 
+                        for image feature extraction, text summarization, study chatbot for mathematical solutions, quiz feature and analysis.
+                    </div>
+                    <div class="achievement-badge">
+                        <i class="fas fa-trophy"></i> 2nd Prize - Hackathon
                     </div>
                     <div class="project-links">
                         <a href="https://github.com/shimaliddin10" class="project-link">
@@ -866,8 +904,8 @@
                     </div>
                     <div class="project-tech">Visual Studio, Expo, React Native</div>
                     <div class="project-description">
-                        Cloned a music streaming app with features including a dynamic music library, play/pause functionality, 
-                        song search, background audio playback, and comprehensive music controls (next/previous).
+                        Cross-platform music streaming app with features including dynamic music library, play/pause functionality, 
+                        song search, background audio playback, and comprehensive music controls. Built for Android and iOS.
                     </div>
                     <div class="project-links">
                         <a href="https://github.com/shimaliddin10" class="project-link">
@@ -885,27 +923,8 @@
                     </div>
                     <div class="project-tech">Android Studio, Java, XML, API</div>
                     <div class="project-description">
-                        Innovative mobile application designed exclusively for farmers, harnessing technology to revolutionize agricultural productivity. 
-                        Features include crop recommendations, agricultural marketplace, and weather prediction.
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/shimaliddin10" class="project-link">
-                            <i class="fab fa-github"></i> View Code
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="card">
-                    <div class="project-header">
-                        <h3 class="project-title">ALLORA EDUBOT</h3>
-                        <span class="project-type">Android App</span>
-                    </div>
-                    <div class="project-tech">Android Studio, Java, Kotlin, API</div>
-                    <div class="project-description">
-                        Easy-to-use interface utilizing transformer model for image feature extraction and caption generation. 
-                        Integrated text summarization, study chatbot for mathematical solutions, quiz feature, and quiz analysis.
+                        Innovative mobile application designed for farmers to revolutionize agricultural productivity. 
+                        Features include crop recommendations, agricultural marketplace, and weather prediction to optimize yield.
                     </div>
                     <div class="project-links">
                         <a href="https://github.com/shimaliddin10" class="project-link">
@@ -922,68 +941,113 @@
         <h2 class="section-title">Experience & Education</h2>
         
         <div class="timeline">
+            <!-- Current Education -->
             <div class="timeline-item">
                 <div class="timeline-content">
-                    <div class="timeline-date">Apr 2025 - Jul 2025</div>
-                    <div class="timeline-title">Machine Learning Intern</div>
-                    <div class="timeline-company">CDAC, Electronic City, Bangalore</div>
+                    <div class="timeline-date">2025 - Present</div>
+                    <div class="timeline-title">MSc. in Artificial Intelligence</div>
+                    <div class="timeline-company">Queens University of Belfast, United Kingdom</div>
                     <div class="timeline-description">
-                        Advanced machine learning internship focusing on cutting-edge AI technologies and real-world applications.
+                        <strong>UK Student VISA</strong><br>
+                        Core Modules: AI for Health, Natural Language Processing, Machine Learning, Computer Vision, Knowledge Engineering
                     </div>
                 </div>
             </div>
 
+            <!-- Current Work -->
             <div class="timeline-item">
                 <div class="timeline-content">
-                    <div class="timeline-date">Oct 2024 - Feb 2025</div>
-                    <div class="timeline-title">AI-Machine Learning Engineer</div>
-                    <div class="timeline-company">Rooman Technologies, Mangalore</div>
+                    <div class="timeline-date">Oct 2025 - Present</div>
+                    <div class="timeline-title">Customer Service Associate / Kitchen Team Member</div>
+                    <div class="timeline-company">KFC, Donegall Place, Belfast</div>
                     <div class="timeline-description">
-                        Worked on developing AI solutions and machine learning models for various industry applications.
+                        Working in high-pressure, fast-paced environment demonstrating strong time management, adaptability, and operational discipline. 
+                        Strengthening communication, teamwork, and coordination skills while maintaining strict quality and safety standards.
                     </div>
                 </div>
             </div>
 
+            <!-- Data Analyst Role -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">Jul 2024 - Aug 2025</div>
+                    <div class="timeline-title">Junior Data Analyst</div>
+                    <div class="timeline-company">NPOWA SOLUTIONS Private Limited</div>
+                    <div class="timeline-description">
+                        Designed and developed interactive dashboards in Power BI to monitor KPIs such as on-time delivery, freight cost, and supplier performance. 
+                        Collected, cleaned, and transformed raw operational data using Power Query and Excel. 
+                        Collaborated with business teams to define requirements and automate reporting workflows.
+                    </div>
+                </div>
+            </div>
+
+            <!-- C-DAC Internship -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">Apr 2025 - Jun 2025</div>
+                    <div class="timeline-title">Machine Learning Intern (with Training in Soft Skills)</div>
+                    <div class="timeline-company">C-DAC Bangalore</div>
+                    <div class="timeline-description">
+                        <strong>Grade: B</strong><br>
+                        Completed hands-on training in Machine Learning covering model development, evaluation, and deployment concepts. 
+                        Attended soft skills development sessions focusing on professional communication, teamwork, and presentation skills. 
+                        Implemented data preprocessing, feature engineering, and model optimization using Python, Scikit-learn, Pandas, and NumPy.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bachelor's Degree -->
             <div class="timeline-item">
                 <div class="timeline-content">
                     <div class="timeline-date">2021 - 2025</div>
                     <div class="timeline-title">B.E. in Artificial Intelligence and Machine Learning</div>
-                    <div class="timeline-company">PA College of Engineering, Mangalore</div>
+                    <div class="timeline-company">PA College of Engineering, Mangalore, INDIA</div>
                     <div class="timeline-description">
-                        <strong>CGPA: 8.99</strong> - Specialized in AI/ML with focus on deep learning, neural networks, and practical applications.
-                    </div>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-date">2019 - 2021</div>
-                    <div class="timeline-title">12th Standard</div>
-                    <div class="timeline-company">St. Aloysius PU College, Mangalore</div>
-                    <div class="timeline-description">
-                        <strong>Score: 85%</strong> - Completed pre-university education with strong foundation in science and mathematics.
+                        <strong>CGPA: 8.9</strong><br>
+                        Core Modules: AI, ML, DBMS, Data Science, Cloud Computing, Business Intelligence
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Leadership & Activities -->
+        <!-- Leadership, Achievements & Activities -->
         <div class="card" style="margin-top: 60px;">
             <h3 style="text-align: center; margin-bottom: 30px; color: var(--text-primary);">
-                <i class="fas fa-trophy"></i> Leadership & Activities
+                <i class="fas fa-trophy"></i> Leadership, Achievements & Activities
             </h3>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
                 <div style="text-align: center; padding: 20px;">
-                    <div style="width: 60px; height: 60px; background: var(--success-gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-size: 1.5rem;">
-                        <i class="fas fa-coins"></i>
+                    <div style="width: 60px; height: 60px; background: var(--gold-gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-size: 1.5rem;">
+                        <i class="fas fa-certificate"></i>
                     </div>
                     <h4 style="color: var(--text-primary); margin-bottom: 10px;">Treasurer</h4>
                     <p style="color: var(--text-secondary); font-size: 0.9rem;">IEEE CIS (Computational Intelligence Society)</p>
                     <p style="color: var(--text-secondary); font-size: 0.8rem;">2022 - 2025</p>
+                    <div class="achievement-badge" style="margin-top: 10px;">
+                        <i class="fas fa-award"></i> Certified
+                    </div>
+                </div>
+
+                <div style="text-align: center; padding: 20px;">
+                    <div style="width: 60px; height: 60px; background: var(--secondary-gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-size: 1.5rem;">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h4 style="color: var(--text-primary); margin-bottom: 10px;">Hackathon Winner</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">2nd Prize - Allora Bot</p>
+                    <p style="color: var(--text-secondary); font-size: 0.8rem;">AI Education Chatbot</p>
                 </div>
                 
                 <div style="text-align: center; padding: 20px;">
-                    <div style="width: 60px; height: 60px; background: var(--secondary-gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-size: 1.5rem;">
+                    <div style="width: 60px; height: 60px; background: var(--primary-gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-size: 1.5rem;">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h4 style="color: var(--text-primary); margin-bottom: 10px;">Active Member</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">DAIS (Data and AI Society)</p>
+                    <p style="color: var(--text-secondary); font-size: 0.8rem;">2025 - Present</p>
+                </div>
+                
+                <div style="text-align: center; padding: 20px;">
+                    <div style="width: 60px; height: 60px; background: var(--success-gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-size: 1.5rem;">
                         <i class="fas fa-futbol"></i>
                     </div>
                     <h4 style="color: var(--text-primary); margin-bottom: 10px;">Football Player</h4>
@@ -997,7 +1061,16 @@
                     </div>
                     <h4 style="color: var(--text-primary); margin-bottom: 10px;">Community Volunteer</h4>
                     <p style="color: var(--text-secondary); font-size: 0.9rem;">Animal Welfare & Advocacy</p>
-                    <p style="color: var(--text-secondary); font-size: 0.8rem;">Ongoing</p>
+                    <p style="color: var(--text-secondary); font-size: 0.8rem;">India</p>
+                </div>
+
+                <div style="text-align: center; padding: 20px;">
+                    <div style="width: 60px; height: 60px; background: var(--secondary-gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-size: 1.5rem;">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h4 style="color: var(--text-primary); margin-bottom: 10px;">Multilingual</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">English (Native), Hindi (Professional)</p>
+                    <p style="color: var(--text-secondary); font-size: 0.8rem;">Kannada (Working Proficiency)</p>
                 </div>
             </div>
         </div>
@@ -1005,71 +1078,75 @@
 
     <!-- Contact Section -->
     <section id="contact" class="section fade-in">
-        <h2 class="section-title">Let's Connect</h2>
-        
+        <h2 class="section-title">Get In Touch</h2>
         <div class="contact-info">
             <div class="contact-item">
-                <i class="fas fa-phone"></i>
-                <span>+91-6360130417</span>
-            </div>
-            <div class="contact-item">
                 <i class="fas fa-envelope"></i>
-                <span>shimaliddin10@gmail.com</span>
+                <a href="mailto:shimaliddin10@gmail.com" style="color: var(--text-secondary); text-decoration: none;">shimaliddin10@gmail.com</a>
             </div>
             <div class="contact-item">
                 <i class="fas fa-map-marker-alt"></i>
-                <span>Mangalore, Karnataka, India</span>
+                <span>Belfast, United Kingdom</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-id-card"></i>
+                <span>UK Student VISA</span>
             </div>
         </div>
-
+        
         <div class="social-links">
-            <a href="https://www.linkedin.com/in/shimal-iddin-a30761248" target="_blank" class="social-link">
+            <a href="https://www.linkedin.com/in/shimal-iddin-a30761248" class="social-link" target="_blank" rel="noopener noreferrer">
                 <i class="fab fa-linkedin-in"></i>
             </a>
-            <a href="https://github.com/shimaliddin10" target="_blank" class="social-link">
+            <a href="https://github.com/shimaliddin10" class="social-link" target="_blank" rel="noopener noreferrer">
                 <i class="fab fa-github"></i>
-            </a>
-            <a href="https://www.instagram.com/mohd_shimal10/" target="_blank" class="social-link">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://www.facebook.com/shimal.iddin.73/" target="_blank" class="social-link">
-                <i class="fab fa-facebook-f"></i>
             </a>
             <a href="mailto:shimaliddin10@gmail.com" class="social-link">
                 <i class="fas fa-envelope"></i>
             </a>
         </div>
 
-        <div class="card" style="margin-top: 40px; text-align: center;">
-            <h3 style="margin-bottom: 20px; color: var(--text-primary);">Ready to collaborate?</h3>
-            <p style="color: var(--text-secondary); margin-bottom: 25px; font-size: 1.1rem;">
-                I'm always open to discussing new opportunities, innovative projects, and ways to make a positive impact through technology.
+        <div style="text-align: center; margin-top: 60px;">
+            <p style="color: var(--text-secondary); font-size: 1rem;">
+                Currently based in Belfast, UK and available for opportunities in AI/ML, Data Analytics, and Software Development
             </p>
-            <a href="mailto:shimaliddin10@gmail.com" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 10px;">
-                <i class="fas fa-paper-plane"></i> Send Message
-            </a>
         </div>
     </section>
 
     <script>
         // Loading Screen
         window.addEventListener('load', function() {
-            const loading = document.getElementById('loading');
             setTimeout(() => {
-                loading.classList.add('hidden');
+                document.getElementById('loading').classList.add('hidden');
             }, 1000);
         });
 
         // Scroll Progress Indicator
         window.addEventListener('scroll', function() {
-            const scrollProgress = document.getElementById('scrollProgress');
-            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrollPercentage = (scrollTop / scrollHeight) * 100;
-            scrollProgress.style.width = scrollPercentage + '%';
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('scrollProgress').style.width = scrolled + '%';
         });
 
-        // Smooth scrolling for navigation links
+        // Fade In Animation on Scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const checkFade = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementBottom = element.getBoundingClientRect().bottom;
+                
+                if (elementTop < window.innerHeight - 100 && elementBottom > 0) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', checkFade);
+        window.addEventListener('load', checkFade);
+
+        // Smooth scroll for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1083,176 +1160,27 @@
             });
         });
 
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        // Observe all fade-in elements
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Dynamic typing effect for hero subtitle
-        function typeWriter(element, text, speed = 100) {
-            let i = 0;
-            element.innerHTML = '';
-            function type() {
-                if (i < text.length) {
-                    element.innerHTML += text.charAt(i);
-                    i++;
-                    setTimeout(type, speed);
-                }
-            }
-            type();
-        }
-
-        // Initialize typing effect after page load
-        setTimeout(() => {
-            const subtitle = document.querySelector('.hero .subtitle');
-            if (subtitle) {
-                const originalText = subtitle.textContent;
-                typeWriter(subtitle, originalText, 80);
-            }
-        }, 1500);
-
-        // Parallax effect for hero section
+        // Add active navigation highlighting
         window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const rate = scrolled * -0.5;
-            const heroContent = document.querySelector('.hero-content');
-            if (heroContent && scrolled < window.innerHeight) {
-                heroContent.style.transform = `translateY(${rate}px)`;
-            }
-        });
-
-        // Add hover sound effect (optional)
-        function playHoverSound() {
-            // Create a subtle audio context for modern interactions
-            // This would require audio files, so commented out for now
-            /*
-            const audioContext = new AudioContext();
-            const oscillator = audioContext.createOscillator();
-            const gainNode = audioContext.createGain();
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('nav a[href^="#"]');
             
-            oscillator.connect(gainNode);
-            gainNode.connect(audioContext.destination);
+            let currentSection = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
             
-            oscillator.frequency.value = 800;
-            gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
-            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
-            
-            oscillator.start(audioContext.currentTime);
-            oscillator.stop(audioContext.currentTime + 0.1);
-            */
-        }
-
-        // Add click functionality for email buttons
-        document.querySelectorAll('a[href^="mailto:"]').forEach(emailLink => {
-            emailLink.addEventListener('click', function(e) {
-                const email = this.href.split('mailto:')[1];
-                
-                // Try to open default email client
-                window.location.href = this.href;
-                
-                // Also copy email to clipboard as backup
-                if (navigator.clipboard && window.isSecureContext) {
-                    navigator.clipboard.writeText(email).then(() => {
-                        // Show temporary notification
-                        showNotification('Email copied to clipboard!');
-                    }).catch(() => {
-                        // Fallback for older browsers
-                        copyToClipboardFallback(email);
-                    });
-                } else {
-                    copyToClipboardFallback(email);
+            navLinks.forEach(link => {
+                link.style.background = '';
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.style.background = 'var(--primary-gradient)';
                 }
             });
         });
-
-        // Fallback clipboard function
-        function copyToClipboardFallback(text) {
-            const textArea = document.createElement('textarea');
-            textArea.value = text;
-            textArea.style.position = 'fixed';
-            textArea.style.left = '-999999px';
-            textArea.style.top = '-999999px';
-            document.body.appendChild(textArea);
-            textArea.focus();
-            textArea.select();
-            try {
-                document.execCommand('copy');
-                showNotification('Email copied to clipboard!');
-            } catch (err) {
-                console.error('Failed to copy email: ', err);
-                showNotification('Please copy email manually: shimaliddin10@gmail.com');
-            }
-            document.body.removeChild(textArea);
-        }
-
-        // Show notification function
-        function showNotification(message) {
-            // Remove existing notification if any
-            const existingNotification = document.querySelector('.email-notification');
-            if (existingNotification) {
-                existingNotification.remove();
-            }
-
-            // Create notification element
-            const notification = document.createElement('div');
-            notification.className = 'email-notification';
-            notification.textContent = message;
-            notification.style.cssText = `
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                background: var(--success-gradient);
-                color: white;
-                padding: 15px 25px;
-                border-radius: 10px;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-                z-index: 10000;
-                animation: slideInRight 0.3s ease-out;
-                font-weight: 500;
-            `;
-
-            // Add slide-in animation
-            const style = document.createElement('style');
-            style.textContent = `
-                @keyframes slideInRight {
-                    from {
-                        transform: translateX(100%);
-                        opacity: 0;
-                    }
-                    to {
-                        transform: translateX(0);
-                        opacity: 1;
-                    }
-                }
-            `;
-            document.head.appendChild(style);
-
-            document.body.appendChild(notification);
-
-            // Remove notification after 3 seconds
-            setTimeout(() => {
-                notification.style.animation = 'slideInRight 0.3s ease-out reverse';
-                setTimeout(() => {
-                    if (notification.parentNode) {
-                        notification.remove();
-                    }
-                }, 300);
-            }, 3000);
-        }
 
         // Particle system for background (lightweight version)
         function createParticles() {
@@ -1310,58 +1238,6 @@
 
         // Initialize particles after page load
         setTimeout(createParticles, 2000);
-
-        // Add active navigation highlighting
-        window.addEventListener('scroll', function() {
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('nav a[href^="#"]');
-            
-            let currentSection = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;
-                const sectionHeight = section.clientHeight;
-                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-                    currentSection = section.getAttribute('id');
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.style.background = '';
-                if (link.getAttribute('href') === `#${currentSection}`) {
-                    link.style.background = 'var(--primary-gradient)';
-                }
-            });
-        });
-
-        // Add easter egg - Konami code
-        let konamiCode = [];
-        const konamiSequence = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65]; // ↑↑↓↓←→←→BA
-        
-        document.addEventListener('keydown', function(e) {
-            konamiCode.push(e.keyCode);
-            if (konamiCode.length > konamiSequence.length) {
-                konamiCode.shift();
-            }
-            
-            if (konamiCode.length === konamiSequence.length && 
-                konamiCode.every((code, index) => code === konamiSequence[index])) {
-                // Easter egg activated!
-                document.body.style.animation = 'rainbow 2s infinite';
-                setTimeout(() => {
-                    document.body.style.animation = '';
-                }, 5000);
-            }
-        });
-
-        // Add rainbow animation for easter egg
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes rainbow {
-                0% { filter: hue-rotate(0deg); }
-                100% { filter: hue-rotate(360deg); }
-            }
-        `;
-        document.head.appendChild(style);
     </script>
 </body>
 </html>
